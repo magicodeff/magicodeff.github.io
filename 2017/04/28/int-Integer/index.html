@@ -87,12 +87,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="背景 时间 ：2017-04-28  地点 ：某活动板房办公室  人物 ：A某，B某，C某  事由：   A（方法调用方），B（接口制定方），C（接口实现方）。B提供了一个接口，其中一个参数是int类型。C实现了这个方法，A正常调用C提供的方法。后来B将这个接口中的int型参数改为了Integer类型。A进行了升级，而C没有进行升级，再次调用的时候报了如下错误   1java.lang.NoSuc">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="int和Integer备案记录">
+<meta property="og:url" content="http://yoursite.com/2017/04/28/int-Integer/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="背景 时间 ：2017-04-28  地点 ：某活动板房办公室  人物 ：A某，B某，C某  事由：   A（方法调用方），B（接口制定方），C（接口实现方）。B提供了一个接口，其中一个参数是int类型。C实现了这个方法，A正常调用C提供的方法。后来B将这个接口中的int型参数改为了Integer类型。A进行了升级，而C没有进行升级，再次调用的时候报了如下错误   1java.lang.NoSuc">
+<meta property="og:image" content="http://op4jum67g.bkt.clouddn.com/image/jpg/awkward.jpeg">
+<meta property="og:updated_time" content="2017-04-29T07:50:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="int和Integer备案记录">
+<meta name="twitter:description" content="背景 时间 ：2017-04-28  地点 ：某活动板房办公室  人物 ：A某，B某，C某  事由：   A（方法调用方），B（接口制定方），C（接口实现方）。B提供了一个接口，其中一个参数是int类型。C实现了这个方法，A正常调用C提供的方法。后来B将这个接口中的int型参数改为了Integer类型。A进行了升级，而C没有进行升级，再次调用的时候报了如下错误   1java.lang.NoSuc">
+<meta name="twitter:image" content="http://op4jum67g.bkt.clouddn.com/image/jpg/awkward.jpeg">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/28/int-Integer/"/>
 
 
 
 
 
-  <title> Hexo </title>
+  <title> int和Integer备案记录 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -151,9 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -268,10 +273,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/28/int-Integer/" itemprop="url">
-                  int和Integer备案记录
-                </a>
+                int和Integer备案记录
               
             
           </h1>
@@ -322,9 +324,7 @@
       
 
       
-        
-          
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
 <li><p>时间 ：2017-04-28</p>
 </li>
 <li><p>地点 ：某活动板房办公室</p>
@@ -356,20 +356,27 @@
 <p>注意 <strong>const #3 = Method    #20.#21;    //  java/lang/Integer.valueOf:(I)Ljava/</strong> 这一行。这里在编译期时jvm自动做了装箱的工作。所以这里需要明确一下自动的拆装箱的工作是在<strong>编译期</strong>就完成了，而不是在运行期进行的。</p>
 <h1 id="代码兼容"><a href="#代码兼容" class="headerlink" title="代码兼容"></a>代码兼容</h1><p>纵观以上，之所以会犯上述的错误。还是把int和Integer当成了一种类型，错误的觉得自动装箱工作是在运行期的时候做的。生产环境代码的改动一定要注意<strong>兼容性</strong>！！！这种错误很容易被忽略。在测试的时候要注意新旧代码的测试。毕竟上线的时候是有一个间隔期。这里容易出现的情况就是在测试环境测试没有问题，一上线就各种报错。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -377,150 +384,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-              
-                
-                <a class="post-title-link" href="/2017/04/04/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+              <a href="/2017/04/04/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-04T21:49:33+08:00">
-                2017-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -528,6 +423,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -547,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -592,6 +500,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法签名"><span class="nav-number">3.</span> <span class="nav-text">方法签名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动拆装箱"><span class="nav-number">4.</span> <span class="nav-text">自动拆装箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码兼容"><span class="nav-number">5.</span> <span class="nav-text">代码兼容</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -699,6 +623,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
